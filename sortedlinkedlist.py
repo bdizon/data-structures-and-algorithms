@@ -9,7 +9,6 @@ class Node():
         self.next = None
 
 class SortedList:
-
     def insert(self, head, val) -> Node:
         if head == None:
             return Node(val)
@@ -38,8 +37,18 @@ class SortedList:
     def delete(self, head, val) -> Node:
         if head == None:
             return 
-        # curr
-        return head
+        sentinel = Node(-1)
+        sentinel.next = head
+        if head.val == val:
+            sentinel.next = head.next
+        else:
+            while head:
+                if head.next and head.next.val == val:
+                    head.next = head.next.next
+                    head = head.next
+                else:
+                    head = head.next
+        return sentinel.next
 
     def search(self, head, val) -> Node:
         return
@@ -62,7 +71,10 @@ sort = SortedList()
 for i in range(10):
     val = random.randint(1,100)
     head = sort.insert(head, val)
-print("###")
+print("Values in the Sorted Linked List:")
+sort.print_list(head)
+sort.delete(head, 34)
+print("Sorted list after deleting %i", 34)
 sort.print_list(head)
 
 
