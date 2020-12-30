@@ -36,7 +36,7 @@ class SortedList:
 
     def delete(self, head, val) -> Node:
         if head == None:
-            return 
+            return
         sentinel = Node(-1)
         sentinel.next = head
         if head.val == val:
@@ -45,13 +45,19 @@ class SortedList:
             while head:
                 if head.next and head.next.val == val:
                     head.next = head.next.next
-                    # head = head.next
                 else:
                     head = head.next
         return sentinel.next
 
-    def search(self, head, val) -> Node:
-        return
+    def search(self, head, val) -> bool:
+        if head == None:
+            return False
+        exists = False
+        while head and not exists:
+            if head.val == val:
+                exists = True
+            head = head.next
+        return exists
     
     def print_list(self, head) -> None:
         if head == None:
@@ -69,6 +75,7 @@ class SortedList:
 head = Node(34)
 sort = SortedList()
 head = sort.insert(head, 34)
+head = sort.insert(head, 29)
 for i in range(10):
     val = random.randint(1,100)
     head = sort.insert(head, val)
@@ -77,6 +84,8 @@ sort.print_list(head)
 sort.delete(head, 34)
 print("Sorted list after deleting: %2d" %(34))
 sort.print_list(head)
+exists = sort.search(head, 29)
+print("%2d is an element in the sorted array? %r" %(29, exists))
 
 
     
