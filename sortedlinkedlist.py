@@ -45,7 +45,7 @@ class SortedList:
             while head:
                 if head.next and head.next.val == val:
                     head.next = head.next.next
-                    head = head.next
+                    # head = head.next
                 else:
                     head = head.next
         return sentinel.next
@@ -68,13 +68,14 @@ class SortedList:
 
 head = Node(34)
 sort = SortedList()
+head = sort.insert(head, 34)
 for i in range(10):
     val = random.randint(1,100)
     head = sort.insert(head, val)
 print("Values in the Sorted Linked List:")
 sort.print_list(head)
 sort.delete(head, 34)
-print("Sorted list after deleting %i", 34)
+print("Sorted list after deleting: %2d" %(34))
 sort.print_list(head)
 
 
