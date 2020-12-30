@@ -34,7 +34,36 @@ class SortedList:
 
         return sentinel.next
 
-    def delete(self, head, val) -> Node:
+    def delete(self, head, val) -> None:
+        if head == None:
+            return
+        deleted = False
+        sentinel = Node(-1)
+        sentinel.next = head
+        if head.val == val:
+            sentinel.next = head.next
+        else:
+            while head and not deleted:
+                if head.next and head.next.val == val:
+                    head.next = head.next.next
+                    deleted = True
+                else:
+                    head = head.next
+        return 
+
+    def remove_duplicates(self, head) -> None:
+        if head == None:
+            return
+        while head:
+            if head.next and head.val == head.next.val:
+                while head.next and head.val == head.next.val:
+                    head.next = head.next.next
+                head = head.next
+            else:
+                head = head.next
+        return
+
+    def delete_all(self, head, val) -> None:
         if head == None:
             return
         sentinel = Node(-1)
@@ -47,7 +76,7 @@ class SortedList:
                     head.next = head.next.next
                 else:
                     head = head.next
-        return sentinel.next
+        return 
 
     def search(self, head, val) -> bool:
         if head == None:
@@ -67,8 +96,6 @@ class SortedList:
             self.print_list(head.next)
         return
 
-    def removeDuplicates(self, head) -> Node:
-        return
 
 
 
@@ -76,13 +103,23 @@ head = Node(34)
 sort = SortedList()
 head = sort.insert(head, 34)
 head = sort.insert(head, 29)
+head = sort.insert(head, 50)
+head = sort.insert(head, 50)
+head = sort.insert(head, 50)
+head = sort.insert(head, 55)
 for i in range(10):
     val = random.randint(1,100)
     head = sort.insert(head, val)
-print("Values in the Sorted Linked List:")
+print("Values in the sorted linked list:")
 sort.print_list(head)
-sort.delete(head, 34)
-print("Sorted list after deleting: %2d" %(34))
+sort.delete(head, 55)
+print("Sorted list after deleting element with the value of: %2d" %(55))
+sort.print_list(head)
+sort.remove_duplicates(head)
+print("Sorted list after deleting duplicates of element with the value of: %2d" %(50))
+sort.print_list(head)
+sort.delete_all(head, 34)
+print("Sorted list after deleting all elements with the value of: %2d" %(34))
 sort.print_list(head)
 exists = sort.search(head, 29)
 print("%2d is an element in the sorted array? %r" %(29, exists))
