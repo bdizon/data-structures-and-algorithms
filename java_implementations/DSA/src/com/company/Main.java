@@ -12,9 +12,10 @@ public class Main {
 
 //        Sorting.bubbleSort(arr);
 //        Sorting.selectionSort(arr);
-        Sorting.insertionSort(arr);
+//        Sorting.insertionSort(arr);
+        Sorting.mergeSort(arr, 0, arr.length - 1);
         System.out.println("Sorted array: " + Arrays.toString(arr));
         Sorting.randomizeArray(arr);
-        System.out.println(Arrays.toString(arr));
+        System.out.println("Unsorted array: "  + Arrays.toString(arr));
     }
 }
