@@ -259,7 +259,7 @@ public class Sorting {
     private static void heapify(int[] arr, int n, int i){
         // find largest among root, left child, and right child
         int largest = i;
-        int l = 2 * i + i;
+        int l = 2 * i + 1;
         int r = 2 * i + 2;
 
         if (l < n && arr[l] > arr[largest]){

@@ -14,7 +14,8 @@ public class SortingMain {
 //        Sorting.selectionSort(arr);
 //        Sorting.insertionSort(arr);
 //        Sorting.mergeSort(arr, 0, arr.length - 1);
-        Sorting.quickSort(arr, 0, arr.length - 1);
+//        Sorting.quickSort(arr, 0, arr.length - 1);
+        Sorting.heapSort(arr);
         System.out.println("Sorted array: " + Arrays.toString(arr));
         Sorting.randomizeArray(arr);
         System.out.println("Unsorted array: "  + Arrays.toString(arr));
