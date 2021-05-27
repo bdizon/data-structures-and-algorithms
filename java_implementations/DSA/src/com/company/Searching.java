@@ -5,8 +5,8 @@ package com.company;
  */
 public class Searching {
 
-    /* Binary Search
-   Heapsort algorithm is used when
+    /* Linear Search
+   Linear search algorithm is used when
        - searching operations in smaller arrays, less than 100 items
    Time Complexity: O(n)
    Space Complexity: O(1)
@@ -20,6 +20,15 @@ public class Searching {
         return -1;
     }
 
+    /* Binary Search
+   Binary search algorithm is used when
+       - debugging, its used to pinpoint the place an error happens
+   Time Complexity:
+       Best: O(1)
+       Worst: O(logn)
+       Average: O(logn)
+       Space Complexity: O(1)
+    */
     public static int binarySearch(int[] arr, int low, int high, int x) {
         if( high >= low) {
             int mid = low + (high - low) / 2;
